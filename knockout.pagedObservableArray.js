@@ -167,5 +167,6 @@
         self.previousPage = _previousPage;
         self.refresh = _refresh;
         self.totalCount = _totalCount;
+        self.loading = _loading;
     };
 }));
