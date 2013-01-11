@@ -96,20 +96,21 @@
 		}, this),
 
 		//load a page of data, then display it
-		_loadPage = function()
-			var paramOptions = {pageSize: _pageSize(), pageIndex: pageIndex()}};
+		_loadPage = function() {
+			var dfdCallback,
+				paramOptions = {pageSize: _pageSize(), pageIndex: pageIndex()};
 			if (options.parameterMap)
 				paramOptions = options.parameterMap(paramOptions);
-			var dfdCallback = options.loadPage(paramOptions);
+			dfdCallback = options.loadPage(paramOptions);
 			$.when(dfdCallback).then(function (data, status) {
                     if (status === 'success') {
                         console.dir(data);
                         console.log(status);
                     }
                 });
-		}),
+		},
 		
-
+		
 		//move to the next page
 	        _nextPage = function () {
 	            if (_pageIndex() < (_pageCount() - 1)) {
@@ -130,6 +131,9 @@
         _pageSize.subscribe(function () { _pageIndex(0); });
         _allData.subscribe(function () { _pageIndex(0); });
 
+		if (options.autoLoad)
+			_loadPage();
+			
         //public members
         this.allData = _allData;
         this.pageSize = _pageSize;
