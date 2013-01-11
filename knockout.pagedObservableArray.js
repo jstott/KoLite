@@ -75,7 +75,7 @@
 	     _pageIndex = ko.observable(0),
 
 		//the total count
-		_totalCount = ko.observable(0);
+		_totalCount = ko.observable(0),
 		
 		//the number of pages
 		_pageCount = ko.computed(function () {
