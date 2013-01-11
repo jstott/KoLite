@@ -82,7 +82,7 @@
 			if (_totalCount() > 0)
 				return Math.ceil(_totalCount() / _pageSize()) || 1;
 			else
-				return return Math.ceil(_allData().length / _pageSize()) || 1;
+				return Math.ceil(_allData().length / _pageSize()) || 1;
 		}),
 			
 		//the current page data
